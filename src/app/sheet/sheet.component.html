@@ -1,0 +1,42 @@
+<div class="sheet">
+  <div class="tabs">
+    <div
+      class="tab"
+      [class.active]="activeSheet === 1"
+      (click)="switchSheet(1)"
+    >
+      Hoja 1
+    </div>
+    <div
+      class="tab"
+      [class.active]="activeSheet === 2"
+      (click)="switchSheet(2)"
+    >
+      Hoja 2
+    </div>
+  </div>
+  <div class="table-container" #tableContainer>
+    <table class="hoja">
+      <thead>
+        <tr contenteditable="false">
+          <th></th>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>D</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of data[activeSheet]; let i = index">
+          <td
+            *ngFor="let cell of row; let j = index"
+            [contentEditable]="i >= 0 && j > 0"
+          >
+            {{ cell }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button (click)="saveData()">Guardar</button>
+</div>
