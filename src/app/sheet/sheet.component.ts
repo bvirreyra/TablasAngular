@@ -66,7 +66,7 @@ export class SheetComponent {
     const currentRowIndex = (currentCell.parentElement as HTMLTableRowElement)
       .rowIndex;
     const currentCellIndex = currentCell.cellIndex;
-    let nextCell;
+    let nextCell: HTMLTableCellElement | undefined;
 
     switch (key) {
       case "ArrowLeft": // Left arrow
